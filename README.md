@@ -64,3 +64,107 @@ npm run typeorm migration:run
 
 # 5. Start the server
 npm run start:dev
+```
+## 📋 Task Breakdown :
+### ✅ Phase 1: Project Setup
+ - Initialize NestJS project with config setup
+
+ -  Setup .env configuration and validation
+
+ - Integrate PostgreSQL with TypeORM or Prisma
+
+ - Add global validation pipes and exception filters
+
+ - Implement global success/error response interceptors
+
+### 🔐 Phase 2: Auth & Users
+ - Create User entity with role field (Admin, Manager, Developer)
+
+ - Register and login endpoints using JWT
+
+ - Secure password hashing using bcrypt
+
+ - Auth guards and role-based access (RolesGuard)
+
+ - Endpoint: Get current user profile (/me)
+
+ - Admin-only: List all users
+
+### 📁 Phase 3: Project & Team Management
+ Create Project entity
+
+ - Many-to-Many relation: Users <-> Projects
+
+ - CRUD endpoints for Projects
+
+ - Assign users to a project
+
+ - List user’s projects
+
+ - Only managers can edit projects
+
+### 📌 Phase 4: Task Management
+ - Create Task entity with fields: title, description, status, priority, due date
+
+ - Relations: One-to-Many (Project -> Tasks), Many-to-One (User -> Task)
+
+ - Task CRUD endpoints
+
+ - Assign tasks to developers
+
+ - Developer can list and update their tasks
+
+### ⏱️ Phase 5: Time Tracking System
+ - Create TimeEntry entity with startTime, endTime, duration, taskId, userId
+
+ - Endpoint: Start timer (store start time)
+
+ - Endpoint: Stop/Pause timer (store end time and calculate duration)
+
+ - Endpoint: Log manual time (with optional comment)
+
+ - Ensure users can't log overlapping time
+
+### 📊 Phase 6: Reporting & Analytics
+ - API for weekly report per developer (total hours, tasks done)
+
+ - Project-level report (total hours from all users)
+
+ - Task completion statistics
+
+ - Export reports to CSV or PDF (optional)
+
+### 🛡️ Phase 7: Admin Features
+ - View all users with stats
+
+ - Deactivate/reactivate users
+
+ - Force-stop timers running too long
+
+ - System usage metrics (active users, projects, etc.)
+
+### 🧪 Phase 8: Testing
+ - Write unit tests for services
+
+ - Write e2e tests for controllers
+
+ - Create a Postman collection for testing manually
+
+### 📦 Phase 9: Final Touches
+ - Swagger API docs setup
+
+ - Seed database with sample data using Faker.js
+
+ - Dockerize the application
+
+ - Setup CI/CD (GitHub Actions or similar)
+
+### ✨ Optional Enhancements
+ - Add WebSocket for real-time timer/task updates
+
+ - Email notifications (task due soon, timer reminders)
+
+ - Cron jobs for scheduled tasks (e.g., daily reports)
+
+ - GraphQL support for frontend clients
+
